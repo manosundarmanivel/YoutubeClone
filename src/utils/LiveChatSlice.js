@@ -8,7 +8,8 @@ const LiveChatSlice = createSlice({
     reducers:{
         setComments : (state,action) =>
         {
-            state.comments.push(action.payload);
+            state.comments.splice(10,1)
+            state.comments.unshift(action.payload);
         }
     }
 })
