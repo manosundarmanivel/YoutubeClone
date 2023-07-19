@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/Constant";
+import { addCache } from "../utils/CacheSlice";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -12,19 +13,36 @@ const Head = () => {
   const [searchValue, setSearchValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
-  console.log(suggestions);
-  useEffect(() => {
-    const timer  = setTimeout(searchAPICall(searchValue),200)
-   return (
-    clearTimeout(timer)
-   )
+  const searchCache = useSelector((store) => store.cache);
 
+  useEffect(() => {
+    const timer = setTimeout(
+      () => {
+        if (searchCache[searchValue]) {
+          console.log("no api")
+          setSuggestions(searchCache[searchValue]);
+        } else {
+          searchAPICall(searchValue);
+        }
+      },
+
+      200
+    );
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [searchValue]);
 
   const searchAPICall = async (searchValue) => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchValue);
     const json = await data.json();
     setSuggestions(json[1]);
+    dispatch(
+      addCache({
+        [searchValue]: json[1],
+      })
+    );
   };
 
   return (
