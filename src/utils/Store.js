@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import AppSlice from "./AppSlice";
 import CacheSlice from "./CacheSlice";
+import LiveChatSlice from "./LiveChatSlice";
 
 const store = configureStore({
   reducer :  {
     app : AppSlice,
-    cache : CacheSlice
+    cache : CacheSlice,
+    live : LiveChatSlice
     
   }
 })
