@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import LiveComments from './LiveComments'
 import { useDispatch, useSelector } from 'react-redux'
 import { setComments } from '../utils/LiveChatSlice';
@@ -9,6 +9,8 @@ const LiveChat = () => {
 
     const dispatch = useDispatch();
     const CommentsData = useSelector((store)=>store.live.comments)
+
+    const[text , setText] = useState("")
 
 
     useEffect(()=>{
@@ -28,6 +30,15 @@ const LiveChat = () => {
         (<LiveComments name={comment.name} message={comment.message} />  )
     )
 }
+<form onSubmit={(e)=>{
+    e.preventDefault()
+dispatch(setComments({
+    name: "mano",
+    message: text
+}))
+}} >
+    <input type='text' value={text} onChange={(e)=>{ setText(e.target.value)}}/>
+</form>
     </div>
   )
 }
