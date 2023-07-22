@@ -1,15 +1,13 @@
 import React from 'react'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 const ButtonList = () => {
   return (
     <div>
-        <Button name={"All"}/>
-        <Button name={"Trending"}/>
-        <Button name={"Music"}/>
-        <Button name={"Gamming"}/>
-        <Button name={"Live"}/>
-        <Button name={"Cricket"}/>
+      <Link to={"/live"} ><Button name={"Live"}/></Link>
+        
+       
         
     </div>
   )

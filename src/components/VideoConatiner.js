@@ -16,7 +16,7 @@ const VideoConatiner = () => {
     getVideos();
   }, []);
 
- 
+ console.log(videos)
   return (
     <div className="flex  flex-wrap">
       {videos.map((video) => {
