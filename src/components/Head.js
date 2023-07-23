@@ -80,7 +80,9 @@ const Head = () => {
           </ul>
         </div>
 
-        <button> Search</button>
+        <button onClick={()=>{
+          
+        }} > Search</button>
       </div>
 
       <div className="col-span-1 ">

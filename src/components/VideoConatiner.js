@@ -16,9 +16,13 @@ const VideoConatiner = () => {
     getVideos();
   }, []);
 
+
+
  console.log(videos)
   return (
     <div className="flex  flex-wrap">
+
+      
       {videos.map((video) => {
         return (
           <Link to={"/watch?v=" + video.id} key={video.id}>
