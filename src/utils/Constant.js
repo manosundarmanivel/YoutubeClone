@@ -21,7 +21,7 @@ export const RELATED_VIDEOD_API =
   "&relatedToVideoId=";
 export const COMMENT_LIST_API = "https://www.googleapis.com/youtube/v3/commentThreads?key="+API_KEY+"&textFormat=plainText&part=snippet&maxResults=50&videoId="
 
-export const SEARCH_VIDEO_BY_KEYWORD_API = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key="+API_KEY+"&q="
+export const SEARCH_VIDEO_BY_KEYWORD_API = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&key="+API_KEY+"&q="
 export const initalData = {
   kind: "youtube#video",
   etag: "xG3nrr5jeD2utrcAinQ11h8QPdA",

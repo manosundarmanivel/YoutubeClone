@@ -26,7 +26,7 @@ const RelatedVideoList = ({ videoId }) => {
         return( 
        <Link to={"/watchlive?v=" + relatedVideo.id.videoId} >
         <div className="p-2 flex flex">
-          <img className="w-[200px] m-3" src={relatedVideo.snippet.thumbnails.medium.url} />
+          <img className="w-[200px] m-3 rounded-lg" src={relatedVideo.snippet.thumbnails.medium.url} />
           <div className="p-3">
             <h1 className="font-semibold">{relatedVideo.snippet.title}</h1>
             <h4>{relatedVideo.snippet.channelTitle}</h4>
