@@ -6,7 +6,6 @@ import { addCache } from "../utils/CacheSlice";
 import { setQueryValue } from "../utils/QuerySlice";
 import { Link } from "react-router-dom";
 
-
 const Head = () => {
   const dispatch = useDispatch();
   const handelMenuBar = () => {
@@ -14,7 +13,7 @@ const Head = () => {
   };
 
   const [searchValue, setSearchValue] = useState("");
-  
+
   const [suggestions, setSuggestions] = useState([]);
 
   const searchCache = useSelector((store) => store.cache);
@@ -23,7 +22,7 @@ const Head = () => {
     const timer = setTimeout(
       () => {
         if (searchCache[searchValue]) {
-          console.log("no api")
+          console.log("no api");
           setSuggestions(searchCache[searchValue]);
         } else {
           searchAPICall(searchValue);
@@ -67,8 +66,8 @@ const Head = () => {
         ></img>
       </div>
       <div className="col-span-10 text-center">
-        <input 
-          className="w-1/2 h-8 my-3 border-gray-400 rounded-l-full p-2 "
+        <input
+          className="w-1/2 h-10 my-3 border border-gray-400 rounded-l-full  p-4 "
           type="text"
           placeholder="Search here"
           value={searchValue}
@@ -76,21 +75,59 @@ const Head = () => {
             setSearchValue(e.target.value);
           }}
         ></input>
-        <div className="fixed">
-          <ul>
+        <div className="fixed pointer-events-auto">
+          <ul className="bg-white rounded-lg p-4">
             {suggestions.map((val) => {
-              return <li><button onClick={()=>{
-                setSearchValue(val);
-              }}>{val}</button></li> ;
+              return (
+                <li className="p-1 text-left">
+                  <div className="flex">
+                  <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 pt-1 "
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+                  <button className="pl-1"
+                    onClick={() => {
+                      setSearchValue(val);
+                    }}
+                  >
+                    {val}
+                  </button>
+                  </div>
+                  
+                </li>
+              );
             })}
           </ul>
         </div>
-        
-        <a href={"results?search_query="+searchValue} ><button>Search</button></a>
-       
-        
-       
-       
+
+        <a href={"results?search_query=" + searchValue}>
+          <button className="border h-10 pb-2 pl-2 pr-2  border-gray-400 rounded-r-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 pt-1 "
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+          </button>
+        </a>
       </div>
 
       <div className="col-span-1 ">
