@@ -9,6 +9,7 @@ import MainContainer from './components/MainContainer';
 import Watch from './components/Watch';
 import LiveConatiner from './components/LiveConatiner';
 import WatchLive from './components/WatchLive';
+import Results from './components/Results';
 
 const AppRouter = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const AppRouter = createBrowserRouter([
       {
         path:"watchlive",
         element:<WatchLive/>
+      },
+      {
+        path:"results",
+        element:<Results/>
       }
 
     ]

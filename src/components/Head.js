@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/Constant";
 import { addCache } from "../utils/CacheSlice";
+import { setQueryValue } from "../utils/QuerySlice";
+import { Link } from "react-router-dom";
+
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -11,6 +14,7 @@ const Head = () => {
   };
 
   const [searchValue, setSearchValue] = useState("");
+  
   const [suggestions, setSuggestions] = useState([]);
 
   const searchCache = useSelector((store) => store.cache);
@@ -63,7 +67,7 @@ const Head = () => {
         ></img>
       </div>
       <div className="col-span-10 text-center">
-        <input
+        <input 
           className="w-1/2 h-8 my-3 border-gray-400 rounded-l-full p-2 "
           type="text"
           placeholder="Search here"
@@ -75,14 +79,18 @@ const Head = () => {
         <div className="fixed">
           <ul>
             {suggestions.map((val) => {
-              return <li>{val}</li>;
+              return <li><button onClick={()=>{
+                setSearchValue(val);
+              }}>{val}</button></li> ;
             })}
           </ul>
         </div>
-
-        <button onClick={()=>{
-          
-        }} > Search</button>
+        
+        <a href={"results?search_query="+searchValue} ><button>Search</button></a>
+       
+        
+       
+       
       </div>
 
       <div className="col-span-1 ">

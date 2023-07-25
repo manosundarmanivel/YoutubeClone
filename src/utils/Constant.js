@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyCugM2zf9KLbVXoLNxz99OnByt5FnF8tgI";
+const API_KEY = "AIzaSyDiAFlAguIBSTcaNKKgjpSNHpdIeNBQbOw";
 export const YOUTUBE_VIDEO_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
   API_KEY;
@@ -20,6 +20,8 @@ export const RELATED_VIDEOD_API =
   API_KEY +
   "&relatedToVideoId=";
 export const COMMENT_LIST_API = "https://www.googleapis.com/youtube/v3/commentThreads?key="+API_KEY+"&textFormat=plainText&part=snippet&maxResults=50&videoId="
+
+export const SEARCH_VIDEO_BY_KEYWORD_API = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key="+API_KEY+"&q="
 export const initalData = {
   kind: "youtube#video",
   etag: "xG3nrr5jeD2utrcAinQ11h8QPdA",
