@@ -66,12 +66,13 @@ const WatchLive = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <h1 className="font-bold text-lg pt-3">
+          <h1 className="font-bold text-lg pt-3 text-white">
             {liveDetails.snippet.title}
           </h1>
         </div>
         <div className="w-[600px]">
           {
+            commentsList.length==0?<h1 className="text-white">No Comments Found</h1>:
             commentsList.map((commentsList)=>{
               return(<Comment name={commentsList.snippet.topLevelComment.snippet.authorDisplayName} comment={commentsList.snippet.topLevelComment.snippet.textDisplay} url ={commentsList.snippet.topLevelComment.snippet.authorProfileImageUrl}/>)
             })
@@ -80,6 +81,7 @@ const WatchLive = () => {
         </div>
       </div>
       <div className="pt-5">
+        
         <RelatedVideoList videoId={videoID} />
       </div>
     </div>

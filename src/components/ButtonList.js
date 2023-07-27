@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ButtonList = () => {
   return (
-    <div className='p-1'>
+    <div className='p-1 bg-black'>
       <Link to={"/live"} ><Button name={"All"}/></Link>
       <Link to={"/live"} ><Button name={"Live"}/></Link>
       <Link to={"/live"} ><Button name={"Computer Programming"}/></Link>

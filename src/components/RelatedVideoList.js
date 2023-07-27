@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RELATED_VIDEOD_API } from "../utils/Constant";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import SearchShimmer from "./SearchShimmer";
 
 const RelatedVideoList = ({ videoId }) => {
   const [relatedVideo, SetRelatedVideo] = useState([]);
@@ -19,7 +20,7 @@ const RelatedVideoList = ({ videoId }) => {
 
 
   return (
-    relatedVideo.length == 0 ? <Shimmer/> :
+    relatedVideo.length == 0 ? <SearchShimmer/> :
 <div className="p-2 w-[500px]">
     {
     relatedVideo.map((relatedVideo)=>{
@@ -28,8 +29,8 @@ const RelatedVideoList = ({ videoId }) => {
         <div className="p-2 flex flex">
           <img className="w-[200px] m-3 rounded-lg" src={relatedVideo.snippet.thumbnails.medium.url} />
           <div className="p-3">
-            <h1 className="font-semibold">{relatedVideo.snippet.title}</h1>
-            <h4>{relatedVideo.snippet.channelTitle}</h4>
+            <h1 className="font-semibold text-white">{relatedVideo.snippet.title}</h1>
+            <h4 className="text-white">{relatedVideo.snippet.channelTitle}</h4>
             <div>
               <h4></h4>
             </div>

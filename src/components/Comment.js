@@ -9,8 +9,8 @@ const Comment = ({name , comment , url}) => {
         </div>
        
         <div className='p-2 m-2'>
-            <h1>{name}</h1>
-            <h1>{comment}</h1>
+            <h1 className='text-white'>{name}</h1>
+            <h1 className='text-white'>{comment}</h1>
         </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { SEARCH_VIDEO_BY_KEYWORD_API } from "../utils/Constant";
 import Shimmer from "./Shimmer";
+import SearchShimmer from "./SearchShimmer";
 
 
 const Results = () => {
@@ -23,7 +24,7 @@ const Results = () => {
 
   return (
     
-    videos.length==0?<Shimmer/>:
+    videos.length==0?<SearchShimmer/>:
     //video.snippet.thumbnails.medium.url
 
             <div>
@@ -39,10 +40,10 @@ const Results = () => {
                                                 <img className="rounded-lg" src={video.snippet.thumbnails.medium.url}/>
                                             </div>
                                             <div className="pl-4">
-                                            <h1 className="font-semibold">{video.snippet.title}</h1> 
-                                            <h1>{video.snippet.channelTitle
+                                            <h1 className="font-semibold text-white">{video.snippet.title}</h1> 
+                                            <h1 className="text-white">{video.snippet.channelTitle
 }</h1>
-                                            <h1>{video.snippet.publishTime}</h1>
+                                            <h1 className="text-white">{video.snippet.publishTime}</h1>
                                             </div>
                                             
                                         </div>

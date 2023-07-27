@@ -10,6 +10,8 @@ import Watch from './components/Watch';
 import LiveConatiner from './components/LiveConatiner';
 import WatchLive from './components/WatchLive';
 import Results from './components/Results';
+import Shimmer from './components/Shimmer';
+import SearchShimmer from './components/SearchShimmer';
 
 const AppRouter = createBrowserRouter([
   {
@@ -35,7 +37,8 @@ const AppRouter = createBrowserRouter([
       {
         path:"results",
         element:<Results/>
-      }
+      },
+      
 
     ]
     
@@ -44,7 +47,7 @@ const AppRouter = createBrowserRouter([
 
 function App() {
   return (
-    <div > 
+    <div className='bg-black' > 
       <Provider store={store}>
       <Head/>
       <RouterProvider router={AppRouter} />

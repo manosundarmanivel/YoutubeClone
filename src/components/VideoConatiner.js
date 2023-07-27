@@ -36,7 +36,7 @@ const VideoConatiner = () => {
 
  console.log(videos)
   return (
-    <div className="flex  flex-wrap">
+    <div className="flex  flex-wrap bg-black">
 
       
       {videos.map((video) => {
