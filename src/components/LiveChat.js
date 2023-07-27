@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import LiveComments from './LiveComments'
 import { useDispatch, useSelector } from 'react-redux'
 import { setComments } from '../utils/LiveChatSlice';
-import store from '../utils/Store';
+
 import { generateName, generateString } from '../utils/helper';
 
 const LiveChat = () => {

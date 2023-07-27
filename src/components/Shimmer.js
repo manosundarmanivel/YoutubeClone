@@ -37,4 +37,4 @@ Array(20).fill("").map((index)=>{
   
 }
 
-export default Shimmer
+export default Shimmer;

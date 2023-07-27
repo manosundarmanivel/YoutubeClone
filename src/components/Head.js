@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/Constant";
 import { addCache } from "../utils/CacheSlice";
-import { setQueryValue } from "../utils/QuerySlice";
-import { Link } from "react-router-dom";
+
 import Logo from "../img/logo.png";
 
 const Head = () => {
@@ -72,14 +71,7 @@ const Head = () => {
             />
           </svg>
         </button>
-        {/* <img
-          onClick={() => {
-            handelMenuBar();
-          }}
-          className="h-8 my-4 "
-          alt="menu"
-          src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-5.png"
-        ></img> */}
+       
         <img className="h-12 p-1 m-2 pl-3" alt="logo" src={Logo}></img>
       </div>
       <div className="col-span-10 text-center">

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/AppSlice";
 import {
-  COMMENT_LIST_API,
+ 
  
   YOUTUBE_LIVE_DETAILS,
   initalData,
@@ -12,13 +12,13 @@ import RelatedVideoList from "./RelatedVideoList";
 import Comment from "./Comment";
 
 
-const WatchLive = () => {
+const LiveWatch = () => {
   const [liveDetails, SetLiveDetails] = useState(initalData);
   const [searchParams] = useSearchParams();
   const videoID = searchParams.get("v");
 
-  const [livecomments, SetLiveComments] = useState("");
-  const [commentsList , SetCommentsList] = useState([])
+//   const [livecomments, SetLiveComments] = useState("");
+//   const [commentsList , SetCommentsList] = useState([])
 
   const getStreamingDetails = async () => {
     const data = await fetch(YOUTUBE_LIVE_DETAILS + videoID);
@@ -35,19 +35,19 @@ const WatchLive = () => {
   //   SetLiveComments(json.items);
   // };
 
-  const getCommentsList= async()=>{
-    const data = await fetch(COMMENT_LIST_API+videoID);
-    const json = await data.json();
-    SetCommentsList(json.items)
-    console.log(json.items[0].snippet.topLevelComment.snippet)
+//   const getCommentsList= async()=>{
+//     const data = await fetch(COMMENT_LIST_API+videoID);
+//     const json = await data.json();
+//     SetCommentsList(json.items)
+//     console.log(json.items[0].snippet.topLevelComment.snippet)
 
-  }
+//   }
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
     getStreamingDetails();
-    getCommentsList();
+    // getCommentsList();
     // getLiveComments();
   }, [videoID]);
 
@@ -71,7 +71,7 @@ const WatchLive = () => {
             {liveDetails.snippet.title}
           </h1>
         </div>
-        <div className="w-[600px]">
+        {/* <div className="w-[600px]">
           {
             commentsList.length==0?<h1 className="text-white">No Comments Found</h1>:
             commentsList.map((commentsList)=>{
@@ -79,7 +79,7 @@ const WatchLive = () => {
             })
           }
           
-        </div>
+        </div> */}
       </div>
       <div className="pt-5">
         
@@ -89,4 +89,4 @@ const WatchLive = () => {
   );
 };
 
-export default WatchLive;
+export default LiveWatch;

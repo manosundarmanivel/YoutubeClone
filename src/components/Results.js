@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { SEARCH_VIDEO_BY_KEYWORD_API } from "../utils/Constant";
-import Shimmer from "./Shimmer";
+
 import SearchShimmer from "./SearchShimmer";
 
 
@@ -31,7 +31,7 @@ const Results = () => {
                 <div className="flex flex-wrap">
                     <ul>
                         {
-                            videos.map((video)=>{
+                            videos.map((video )=>{
                                 return(
                                     <Link to={"/watchlive?v="+video.id.videoId} >
                                     <li>

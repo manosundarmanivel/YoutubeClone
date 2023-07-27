@@ -10,8 +10,8 @@ import Watch from './components/Watch';
 import LiveConatiner from './components/LiveConatiner';
 import WatchLive from './components/WatchLive';
 import Results from './components/Results';
-import Shimmer from './components/Shimmer';
-import SearchShimmer from './components/SearchShimmer';
+import LiveWatch from './components/liveWatch';
+
 
 const AppRouter = createBrowserRouter([
   {
@@ -38,6 +38,10 @@ const AppRouter = createBrowserRouter([
         path:"results",
         element:<Results/>
       },
+      {
+        path:"livewatch",
+        element:<LiveWatch/>
+      }
       
 
     ]

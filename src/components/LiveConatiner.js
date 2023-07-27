@@ -21,7 +21,7 @@ const LiveConatiner = () => {
     <div className='flex flex-wrap'>
      {
         liveVideo.map((video)=>{
-            return(<Link to={"/watchlive?v="+ video.id.videoId} ><LiveVideo info={video}/></Link> )
+            return(<Link to={"/livewatch?v="+ video.id.videoId} ><LiveVideo info={video}/></Link> )
         })
      }
     </div>
